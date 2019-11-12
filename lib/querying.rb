@@ -11,7 +11,10 @@ def select_value_and_count_of_most_prolific_species
 end
 
 def select_name_and_series_subgenres_of_authors
-  "SELECT name, subgenre FROM authors FULL OUTER JOIN"
+  "SELECT name, subgenre FROM authors FULL OUTER JOIN series
+  ON owners.id = cats_owners.owner_id
+  JOIN subgenres ON cats_owners.cat_id = cats.id
+  GROUP BY owners.name"
 end
 
 def select_series_title_with_most_human_characters

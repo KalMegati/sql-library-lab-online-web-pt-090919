@@ -23,7 +23,7 @@ end
 
 def select_character_names_and_number_of_books_they_are_in
   "SELECT characters.name, COUNT(books.id) FROM characters
-  INNER JOIN series ON authors.id = series.author_id
+  LEFT OUTER JOIN characters_books ON  = characters_books.
   JOIN subgenres ON series.subgenre_id = subgenres.id"
 end
 
